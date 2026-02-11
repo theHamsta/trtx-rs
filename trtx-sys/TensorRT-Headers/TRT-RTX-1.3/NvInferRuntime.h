@@ -150,7 +150,7 @@ public:
     }
 
     //! The size in bytes of the data that was allocated.
-    std::size_t size() const noexcept
+    size_t size() const noexcept
     {
         return mImpl->size();
     }
