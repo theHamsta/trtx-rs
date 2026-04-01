@@ -654,7 +654,7 @@ impl<'network> NetworkDefinition<'network> {
     }
 
     /// See [`trtx_sys::nvinfer1::INetworkDefinition::addIdentity`].
-    pub fn add_identity(&mut self, input: &'_ Tensor) -> Result<IdentityLayer<'network>> {
+    pub fn add_identity(&'_ mut self, input: &'_ Tensor) -> Result<IdentityLayer<'network>> {
         crate::check_network!(self, input);
         let layer_ptr = self.inner.pin_mut().addIdentity(input.pin_mut());
 
