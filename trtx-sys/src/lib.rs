@@ -59,6 +59,10 @@ better_enum!(ProfilingVerbosity);
 better_enum!(MemoryPoolType);
 better_enum!(DeviceType);
 better_enum!(EngineCapability);
+#[cfg(not(feature = "enterprise"))]
+better_enum!(EngineValidity);
+#[cfg(not(feature = "enterprise"))]
+pub use crate::enums::EngineInvalidityDiagnostics;
 better_enum!(BuilderFlag);
 better_enum!(PreviewFeature);
 better_enum!(HardwareCompatibilityLevel);

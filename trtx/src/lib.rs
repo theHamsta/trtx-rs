@@ -138,6 +138,8 @@ pub mod builder_config;
 pub mod cuda;
 pub mod cuda_engine;
 pub mod engine_inspector;
+#[cfg(not(feature = "enterprise"))]
+pub mod engine_validity;
 pub mod error;
 pub mod execution_context;
 #[cfg(feature = "onnxparser")]
@@ -320,8 +322,10 @@ pub use trtx_sys::{
 };
 
 #[cfg(not(feature = "enterprise"))]
+pub use engine_validity::EngineInvalidityDiagnostics;
+#[cfg(not(feature = "enterprise"))]
 pub use trtx_sys::{
-    ComputeCapability, CudaGraphStrategy, DynamicShapesKernelSpecializationStrategy,
+    ComputeCapability, CudaGraphStrategy, DynamicShapesKernelSpecializationStrategy, EngineValidity,
 };
 
 #[cfg(feature = "v_1_4")]
